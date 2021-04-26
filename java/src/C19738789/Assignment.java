@@ -1,5 +1,6 @@
 /*assignmentjava
-This assignment  visual art piece. A tree will response to the Mp3 musice 
+This assignment  visual art piece. A tree will response to the Mp3 musice.
+ if you run it then hit space it will work . you will see tree response to the music.
 Author: Huda AL Rubayawi
 student number: C19738789
 Data: 26-04-2021
