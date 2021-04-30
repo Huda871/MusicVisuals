@@ -7,6 +7,7 @@ Data: 26-04-2021
 */
 package C19738789;
 
+// we import here all what we should impoert e.g pApplet, AudioBuffer, end so on
 import ddf.minim.AudioBuffer;
 import ddf.minim.AudioInput;
 import ddf.minim.AudioPlayer;
@@ -22,14 +23,17 @@ public class Assignment extends PApplet{
     AudioPlayer ap;// to play mp3 music
     AudioBuffer ab;// Samples
     //AudioInput ai;// How to connect to mic
-    FFT fft; // fast forior transfor
+    FFT fft; // fast fourier transform. it is mesuerment methode of audio.
     float theta; 
     float a;
 
     float[] bands;
     float[] smoothedBands;
 
-    void calculateFrequencyBands() {
+/* methode of claculating frquency bands it take fft algorthm and goup of erray together.
+separate the audio in diffrent range
+*/
+    void calculateFrequencyBands() {  
         for (int i = 0; i < bands.length; i++) {
           int start = (int) pow(2, i) - 1;
           int w = (int) pow(2, i);
@@ -56,17 +60,18 @@ public class Assignment extends PApplet{
     }
     int which = 0;
 
-
+   // stup fuction here we put the code for mp3 file to let it the music working
     public void setup()
     {
 
-        colorMode(HSB);
-
+        colorMode(HSB);   // we use HSB coloe mode
+        // creat conaction to minum library
         minim = new Minim(this);
+        // calling loadfile on minim object
         ap = minim.loadFile("heroplanet.mp3", width);
         //ai = minim.getLineIn(Minim.MONO, width, 44100, 16); 
         ab = ap.mix;
-
+        // creat new fft abject. you pass in frame size and sample rate
         fft = new FFT(width, 44100);
 
         bands = new float[(int) log2(width)];
@@ -78,8 +83,8 @@ public class Assignment extends PApplet{
 
     }
 
-
-    public void keyPressed()
+    // this code is the key function here how let the work  for example pressing space to let it start and if you pre it again it will paus or stop it.
+    public void keyPressed() 
     {
         if (keyCode >= '0' && keyCode <= '5') {
             which = keyCode - '0';
@@ -97,7 +102,7 @@ public class Assignment extends PApplet{
             }
         }
     }
-
+    // here amplitude average calcuation to let the tree code response to music connect them to music 
     private float amplitude  = 0;
 	private float smothedAmplitude = 0;
 
@@ -116,37 +121,37 @@ public class Assignment extends PApplet{
             getAudioPlayer().player();
         }*/
 
-
+     // draw method to show the drwing for example the code of tree  and all code we want to drawing will be here
     public void draw()
     {
-        background(0);
-        stroke(255);
+        background(0); // black colour of background 
+        stroke(255);  // white border colour
 
         float halfHeight = height / 2;
         for(int i = 0 ; i < ab.size() ; i ++)
         {
-            stroke(map(i, 0, ab.size(), 0, 255), 255, 255);
+            stroke(map(i, 0, ab.size(), 0, 255), 255, 255); // using maping fuction to calculate 
             line(i, halfHeight - (ab.get(i) * halfHeight), i, halfHeight + (ab.get(i) * halfHeight));
         }
 
         fft.window(FFT.HAMMING);
         fft.forward(ab);
-
+        //we use map to map i from range zero and pass it 255 second two parameters so can HSB color going on
         int highestBand = 0;
         for(int i = 0 ; i < fft.specSize() ; i ++)  // fft array
         {
-            stroke(map(i, 0, fft.specSize(), 0, 255), 255, 255);// specSize for input
-            line(i, height, i, height - (fft.getBand(i) * halfHeight));// getBand for output
+            stroke(map(i, 0, fft.specSize(), 0, 255), 255, 255);// specSize for to get the size of the buffer
+            line(i, height, i, height - (fft.getBand(i) * halfHeight));// getBand to get the element at the position i
             if (fft.getBand(i) > fft.getBand(highestBand))
             {
-                highestBand = i;
+                highestBand = i;  // we use this to get the highst element
             }
         }
 
-        float freq = fft.indexToFreq(highestBand);
-        textSize(24);
+        float freq = fft.indexToFreq(highestBand); // call index frequency and convert it to frequency 
+        textSize(24);  // print out the frequency
         fill(255);
-        text("Frequency: " + freq, 10, 50);
+        text("Frequency: " + freq, 10, 50);  
         //text("Note: " + spell(freq), 10, 100);
 
         calculateFrequencyBands();
