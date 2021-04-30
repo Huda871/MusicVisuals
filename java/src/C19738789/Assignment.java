@@ -22,7 +22,7 @@ public class Assignment extends PApplet{
     AudioPlayer ap;// to play mp3 music
     AudioBuffer ab;// Samples
     //AudioInput ai;// How to connect to mic
-    FFT fft;
+    FFT fft; // fast forior transfor
     float theta; 
     float a;
 
