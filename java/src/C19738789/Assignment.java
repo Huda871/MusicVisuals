@@ -28,7 +28,7 @@ public class Assignment extends PApplet{
     float a;
 
     float[] bands;
-    float[] smoothedBands;
+    float[] smoothedBands;// i used sthomthbands to make the assigment look smother 
 
 /* methode of claculating frquency bands it take fft algorthm and goup of erray together.
 separate the audio in diffrent range

@@ -1,8 +1,8 @@
 # Music Visualiser Project
 
-Name:
+Name: Huda ALRubayawi
 
-Student Number: 
+Student Number: C19738789
 
 ## Instructions
 - Fork this repository and use it a starter project for your assignment
@@ -17,7 +17,25 @@ This assignment visual art piece. A tree will response to the MP3 music.  When y
 I forked this repository and use it a starter project for my assignment. I created a new package named my student number and putted all my code in this package. I started by creating a subclass of ie.tudublin Visual. I checked out the WaveForm and AudioBandsVisual for examples of how to call the Processing functions from other classes that are not subclasses of PApplet.
 
 # How it works
-I used this code below and I comment and explained all method and codes I needed  it for this assignment  
+I used this code below and I comment and explained all method and codes I needed  it for this assignment 
+ /*assignmentjava
+This assignment  visual art piece. A tree will response to the Mp3 musice.
+ if you run it then hit space it will work . you will see tree response to the music.
+Author: Huda AL Rubayawi
+student number: C19738789
+Data: 26-04-2021
+*/
+package C19738789;
+
+// we import here all what we should impoert e.g pApplet, AudioBuffer, end so on
+import ddf.minim.AudioBuffer; // importing audiobuffer by pressing contrlo dot 
+import ddf.minim.AudioInput;  // improting audioInput
+import ddf.minim.AudioPlayer;
+import ddf.minim.Minim;
+import ddf.minim.analysis.FFT;
+import ie.tudublin.Visual;
+import ie.tudublin.VisualException;
+import processing.core.PApplet;
 
  Minim minim;// Connect to minim
     AudioPlayer ap;// to play mp3 music
@@ -199,7 +217,7 @@ separate the audio in diffrent range
 
 
 # What I am most proud of in the assignment
-This is my first java assignment, and I was very proud and feeling good when I uploaded on YouTube. I was very happy when I run it after challenging with coding and I learned a lot from this assignment.  I learned and used    mapping method, fft , band, setup(), draw(), colours, setting(), amplitude, frequency, This was my first time to learn java hoop in future I learn nicer stuff to be proud of. My lecturer was very hard worker, and he was very help full he helped everybody in class to succeed. If any student does not understand what something he will try different methods to explain it in class. I am proud and happy to have a lecture look like him. 
+This is my first java assignment, and I was very proud and feeling good when I uploaded on YouTube. I was very happy when I run it after challenging with coding and I learned a lot from this assignment.  I learned and used mapping method, fft , band, setup(), draw(), colours, setting(), amplitude, frequency, This was my first time to learn java.i lrean from my mistake. hoop in future I learn nicer stuff to be proud of. My lecturer was very hard worker, and he was very help full he helped everybody in class to succeed. If any student does not understand what something he will try different methods to explain it in class. I am proud and happy to have a lecture look like him. 
 # Markdown Tutorial
 
 This is *emphasis*
@@ -259,7 +277,7 @@ This is a youtube video:
 
  https://youtu.be/Ep9fhI3c7vI
 
-[![YouTube](http://img.youtube.com/vi/J2kHSSFA4NU/0.jpg)](https://www.youtube.com/watch?v=J2kHSSFA4NU)
+[![YouTube](http://img.youtube.com/vi/Ep9fhI3c7vI/0.jpg)](https://www.youtube.com/watch?v=Ep9fhI3c7vI)
 
 This is a table:
 
